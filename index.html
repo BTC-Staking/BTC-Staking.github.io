@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO / EEAT Meta Tags -->
+  <title>BTC Staking — How to Earn Yield on Bitcoin, Options, APY/APR, Risks &amp; Troubleshooting (2026)</title>
+  <meta name="description" content="BTC staking guide (2026): how Bitcoin yield works, Babylon Protocol, wrapped BTC in DeFi, CeFi lending, Stacks stacking, Core DAO, APY vs APR, risk framework, smart contract risk, counterparty risk, comparisons, and troubleshooting. Includes KPIs, runbook, and a deep FAQ.">
+  <meta name="author" content="Crypto Finance Experts">
+  <link rel="canonical" href="https://lido-btc-staking.example.com/">
+
+  <link rel="icon" type="image/png" href="lido.staking.logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://lido-btc-staking.example.com/">
+  <meta property="og:title" content="BTC Staking — How to Earn Yield on Bitcoin, Options, APY/APR, Risks &amp; Troubleshooting (2026)">
+  <meta property="og:description" content="Practical BTC yield guide: Babylon Protocol, wrapped BTC DeFi, CeFi lending, Stacks stacking, risk framework, APY/APR, comparisons, and troubleshooting.">
+  <meta property="og:image" content="cover.png">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://lido-btc-staking.example.com/">
+  <meta property="twitter:title" content="BTC Staking — Earn Yield on Bitcoin, Options, APY/APR &amp; Risks (2026)">
+  <meta property="twitter:description" content="How to earn yield on Bitcoin: Babylon Protocol, wrapped BTC, CeFi, Stacks, Core DAO — rate comparison, risk framework, and best practices in 2025–2026.">
+  <meta property="twitter:image" content="cover.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "BTC Staking — How to Earn Yield on Bitcoin, Options, APY/APR, Risks & Troubleshooting (2026)",
+    "description": "Comprehensive guide to earning yield on Bitcoin: Babylon Protocol, wrapped BTC in DeFi, CeFi lending, Stacks stacking, Core DAO, APY vs APR, and risk framework.",
+    "author": { "@type": "Organization", "name": "Crypto Finance Experts" },
+    "publisher": { "@type": "Organization", "name": "Crypto Finance Experts" },
+    "datePublished": "2026-01-01",
+    "dateModified": "2026-03-01"
+  }
+  </script>
+
+  <style>
+    :root{
+      /* Copper–Bitcoin Orange Theme */
+      --primary:#B45309;
+      --primary-600:#92400E;
+      --primary-700:#78350F;
+      --accent:#F97316;
+
+      --ink:#FFF7ED;
+      --muted:#A1A1AA;
+      --muted-2:#71717A;
+
+      --bg:#0A0602;
+      --panel:#130904;
+      --panel-2:#1A0C05;
+      --line:rgba(255,255,255,.08);
+
+      --ok:#34D399;
+      --warn:#FBBF24;
+      --error:#F87171;
+
+      --shadow:0 12px 32px rgba(0,0,0,.55);
+      --radius:14px;
+      --radius-sm:10px;
+      --radius-lg:20px;
+      --gap:1.25rem;
+      --gap-lg:2rem;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:var(--muted);
+      background:#0A0602;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.25rem}
+
+    h1,h2,h3,h4{color:var(--ink);line-height:1.25;margin:0 0 .6rem}
+    h1{font-size:clamp(2rem,4.5vw,3.1rem);font-weight:800;letter-spacing:-.2px}
+    h2{font-size:clamp(1.35rem,2.8vw,2rem);margin-top:2.2rem;padding-top:.6rem;border-top:1px solid var(--line)}
+    h3{font-size:clamp(1.05rem,2.2vw,1.3rem);color:#FED7AA}
+
+    p,li,td,th{font-size:1rem}
+    .lead{font-size:1.125rem;color:#FFEDD5}
+    .muted{color:var(--muted)}
+    .muted-2{color:var(--muted-2)}
+
+    header.hero{padding:clamp(2rem,6vw,4rem) 0;border-bottom:1px solid var(--line)}
+    .hero-grid{display:grid;gap:var(--gap-lg);grid-template-columns:1fr;align-items:stretch}
+    .hero-card{
+      background:#130904;border:1px solid var(--line);
+      border-radius:var(--radius-lg);padding:clamp(1rem,3vw,1.75rem);box-shadow:var(--shadow);
+    }
+
+    .brand-row{display:flex;align-items:center;gap:.9rem;margin-bottom:.75rem}
+    .brand-logo{
+      width:54px;height:54px;border-radius:14px;border:1px solid var(--line);
+      background:rgba(180,83,9,.08);padding:.35rem;object-fit:contain;
+      box-shadow:0 6px 16px rgba(0,0,0,.30);flex:0 0 auto;
+    }
+
+    .cta{
+      display:inline-flex;align-items:center;gap:.5rem;
+      background:var(--accent);color:#0A0602;padding:1rem 2.5rem;border-radius:12px;
+      font-weight:800;font-size:1.05rem;letter-spacing:.2px;
+      box-shadow:0 10px 28px rgba(249,115,22,.32);border:1px solid rgba(255,255,255,.10);
+      transition:background .18s,transform .18s,box-shadow .18s;
+    }
+    .cta:hover{background:var(--primary);color:#fff;transform:translateY(-2px);box-shadow:0 16px 36px rgba(249,115,22,.44);text-decoration:none}
+
+    .note{
+      border-left:2px solid var(--accent);padding:.75rem 1rem;
+      background:rgba(249,115,22,.07);border-radius:0 10px 10px 0;color:#FFEDD5;
+    }
+
+    section.step-guide{padding:clamp(2rem,6vw,3.5rem) 0}
+    .steps{display:grid;gap:var(--gap);grid-template-columns:1fr}
+    .step{
+      background:#130904;border:1px solid var(--line);border-radius:var(--radius);
+      padding:1.2rem;box-shadow:0 8px 20px rgba(0,0,0,.35);
+      transition:transform .2s ease,border-color .2s ease;
+    }
+    .step:hover{transform:translateY(-3px);border-color:rgba(249,115,22,.28)}
+    .step .icon{
+      width:48px;height:48px;border-radius:10px;display:inline-grid;place-items:center;
+      background:rgba(180,83,9,.14);margin-bottom:.6rem;color:#FED7AA;
+      font-weight:900;border:1px solid rgba(249,115,22,.20);
+    }
+
+    main .card{
+      background:#130904;border:1px solid var(--line);border-radius:var(--radius);
+      padding:1.25rem;margin:1.25rem 0;box-shadow:0 8px 20px rgba(0,0,0,.35);
+    }
+
+    .grid-2{display:grid;gap:var(--gap);grid-template-columns:1fr}
+    .pillbar{display:flex;flex-wrap:wrap;gap:.6rem;margin:.75rem 0 0}
+    .pill{border:1px solid var(--line);background:rgba(180,83,9,.08);padding:.4rem .65rem;border-radius:999px;font-weight:700;color:#FED7AA}
+
+    .toc{border:1px solid var(--line);background:rgba(180,83,9,.04);border-radius:var(--radius);padding:1rem}
+    .toc strong{color:var(--ink)}
+    .toc ul{margin:.5rem 0 0;padding-left:1.1rem}
+    .toc li{margin:.25rem 0}
+    .toc a{font-weight:700;color:var(--accent)}
+
+    table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:12px}
+    th,td{padding:.9rem;border-bottom:1px solid var(--line)}
+    th{background:rgba(180,83,9,.10);color:var(--ink);text-align:left}
+    tr.highlight{background:rgba(180,83,9,.06)}
+    tr:hover{background:rgba(255,255,255,.02)}
+
+    .ok{color:var(--ok)}.warn{color:var(--warn)}.err{color:var(--error)}
+
+    .eeat{
+      background:rgba(180,83,9,.04);border:1px solid var(--line);
+      border-radius:var(--radius);padding:1.25rem;box-shadow:0 8px 20px rgba(0,0,0,.35);
+    }
+
+    .faq-item{border-bottom:1px solid var(--line);padding:.9rem 0}
+    .faq-button{all:unset;display:flex;justify-content:space-between;align-items:center;width:100%;cursor:pointer;padding:.3rem 0}
+    .faq-button:focus-visible{outline:2px solid var(--accent)}
+    .faq-button h3{margin:0;font-weight:800}
+    .faq-content{max-height:0;overflow:hidden;transition:max-height .25s ease}
+    .faq-content.open{padding-top:.6rem}
+    .faq-plus{font-weight:900;color:var(--accent);font-size:1.2rem}
+
+    .cta-center{display:flex;justify-content:center;margin-top:1.25rem}
+
+    .badge-row{display:flex;flex-wrap:wrap;gap:.6rem;margin:.9rem 0 0}
+    .badge{border:1px solid rgba(249,115,22,.20);background:rgba(249,115,22,.06);padding:.35rem .6rem;border-radius:999px;font-weight:800;color:#FED7AA}
+
+    .callout-grid{display:grid;gap:var(--gap);grid-template-columns:1fr;margin-top:.75rem}
+    .mini{background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:var(--radius);padding:1rem}
+    .mini h3{margin-bottom:.35rem}
+    .kpi-badges{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:.5rem}
+    .kpi-badges span{
+      border:1px solid rgba(180,83,9,.24);background:rgba(180,83,9,.09);
+      color:#FED7AA;padding:.3rem .55rem;border-radius:999px;font-weight:800;font-size:.9rem;
+    }
+
+    .src{
+      display:inline-flex;align-items:center;gap:.2rem;font-size:.78rem;font-weight:700;
+      color:var(--accent);border:1px solid rgba(249,115,22,.24);background:rgba(180,83,9,.08);
+      border-radius:5px;padding:.1rem .4rem;vertical-align:middle;white-space:nowrap;
+    }
+    .src:hover{background:rgba(249,115,22,.16);text-decoration:none}
+    .src::before{content:'↗ ';font-size:.7rem;opacity:.7}
+
+    /* method cards */
+    .method-grid{display:grid;gap:.75rem;grid-template-columns:1fr;margin-top:.75rem}
+    .m-card{border:1px solid var(--line);background:rgba(180,83,9,.05);border-radius:var(--radius);padding:1rem}
+    .m-card h3{font-size:.95rem;margin-bottom:.4rem;color:var(--ink)}
+    .m-card p{font-size:.875rem;margin:0;color:var(--muted)}
+    .m-tag{
+      display:inline-block;font-size:.72rem;font-weight:800;
+      color:#FED7AA;background:rgba(180,83,9,.14);
+      border:1px solid rgba(249,115,22,.22);border-radius:4px;
+      padding:.12rem .4rem;margin-bottom:.4rem;letter-spacing:.3px;text-transform:uppercase;
+    }
+
+    /* rate bars */
+    .rbars{display:grid;gap:.5rem;margin:1rem 0}
+    .rbr{display:flex;align-items:center;gap:.7rem}
+    .rbl{min-width:140px;font-size:.85rem;font-weight:700;color:#FED7AA}
+    .rbt{flex:1;height:5px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+    .rbf{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--primary),var(--accent))}
+    .rbv{min-width:56px;text-align:right;font-size:.85rem;font-weight:800;color:var(--accent)}
+
+    @media(min-width:860px){
+      .steps{grid-template-columns:repeat(4,1fr)}
+      .grid-2{grid-template-columns:1fr 1fr}
+      .callout-grid{grid-template-columns:1fr 1fr}
+      .method-grid{grid-template-columns:repeat(3,1fr)}
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="hero" role="banner">
+  <div class="container hero-grid">
+    <div class="hero-card" aria-label="Intro">
+      <div class="brand-row">
+        <img class="brand-logo" src="lido.staking.logo.png" alt="Lido Staking logo">
+        <div>
+          <div class="muted" style="font-weight:800;letter-spacing:.2px;">Operational Guide</div>
+          <div class="muted-2" style="font-size:.95rem;">Babylon Protocol&nbsp;•&nbsp;wBTC DeFi&nbsp;•&nbsp;CeFi Lending&nbsp;•&nbsp;Stacks&nbsp;•&nbsp;Core DAO</div>
+        </div>
+      </div>
+
+      <h1>BTC Staking</h1>
+      <p class="lead">
+        A practical guide to earning yield on Bitcoin: how the leading mechanisms work,
+        what rates to expect from Babylon Protocol, wrapped BTC in DeFi, CeFi lending,
+        and Stacks stacking, how to compare <strong>APY vs APR</strong> across options,
+        and the specific risk profiles of each approach — Bitcoin's proof-of-work design
+        means BTC yield comes from fundamentally different sources than PoS staking.
+      </p>
+
+      <div class="cta-center">
+        <a href="https://lido-staking.net/" class="cta" target="_blank" rel="noopener" aria-label="Explore staking options with Lido">
+          Explore Staking Options &nbsp;→
+        </a>
+      </div>
+
+      <div class="note" style="margin-top:1.25rem;">
+        <strong>Critical framing:</strong> Bitcoin uses proof-of-work — it has no native staking mechanism.
+        "BTC staking" in practice refers to several distinct yield methods: native BTC time-locking
+        (Babylon Protocol), wrapping BTC to use in DeFi lending (wBTC), CeFi lending, and
+        Bitcoin-adjacent PoS networks (Stacks, Core DAO). Each has a completely different risk profile.
+        Do not conflate them.
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="step-guide" aria-labelledby="how-works">
+  <div class="container">
+    <h2 id="how-works">How BTC Yield Mechanisms Work: End-to-End (Understand → Choose → Deploy → Monitor)</h2>
+    <div class="steps" role="list">
+      <article class="step" role="listitem">
+        <div class="icon">①</div>
+        <h3>Understand what type of yield you're seeking</h3>
+        <p>
+          Native BTC yield with no bridging (Babylon), DeFi yield via wrapped BTC (wBTC),
+          CeFi interest (centralised platform), or PoS rewards via Bitcoin-adjacent networks
+          (Stacks, Core DAO). Each requires different trust assumptions and has different
+          risk characteristics.
+        </p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">②</div>
+        <h3>Verify protocol security and legitimacy</h3>
+        <p>
+          For Babylon: verify the smart contract audit and official documentation.
+          For wBTC DeFi: verify the DeFi protocol audit and wBTC bridge security.
+          For CeFi: assess platform solvency and regulatory status.
+          For Stacks/Core: verify the network's own security properties.
+        </p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">③</div>
+        <h3>Deploy with appropriate size and controls</h3>
+        <p>
+          Start with a small test amount. Use a hardware wallet for meaningful BTC positions.
+          Set a defined exit plan before deploying — especially for CeFi, where counterparty
+          risk makes exit strategy critical.
+        </p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">④</div>
+        <h3>Monitor rates and risk parameters</h3>
+        <p>
+          BTC yield rates are generally lower and more stable than DeFi stablecoin rates.
+          Monitor CeFi platform health continuously — the FTX and Celsius collapses
+          demonstrate how rapidly platform risk can materialise.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<main class="container" role="main">
+
+  <section class="card toc" aria-label="Table of Contents">
+    <strong>On this page (BTC Staking):</strong>
+    <ul>
+      <li><a href="#overview">Overview — why BTC yield differs fundamentally from PoS staking</a></li>
+      <li><a href="#methods">The six main BTC yield mechanisms explained</a></li>
+      <li><a href="#rewards">What drives BTC yield rates</a></li>
+      <li><a href="#apy-apr">APY / APR: how to compare across mechanisms</a></li>
+      <li><a href="#how-to">How to earn BTC yield: step-by-step tutorial</a></li>
+      <li><a href="#calculator">Calculator: net yield estimation framework</a></li>
+      <li><a href="#rates">Current rate benchmarks across BTC yield options</a></li>
+      <li><a href="#minimum">Minimum amount required</a></li>
+      <li><a href="#yield">Babylon Protocol: native BTC staking deep-dive</a></li>
+      <li><a href="#review">Review: legitimacy signals and what to watch</a></li>
+      <li><a href="#safety">Risks: bridge, smart contract, counterparty, custodial</a></li>
+      <li><a href="#comparison">Comparison: all major BTC yield options</a></li>
+      <li><a href="#best-practices">Best practices: high-impact rules</a></li>
+      <li><a href="#troubleshooting">Troubleshooting and common issues</a></li>
+      <li><a href="#eeat">Sources and references</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </section>
+
+  <section class="card" id="overview">
+    <h2>Overview: Why Bitcoin Yield Differs Fundamentally from PoS Staking</h2>
+    <p>
+      Bitcoin's proof-of-work consensus does not reward token holders for locking capital —
+      it rewards miners for expending computational energy. There is no native mechanism
+      that pays BTC holders simply for holding or time-locking their coins.
+      Every BTC yield mechanism therefore introduces at least one of: a bridge risk,
+      a smart contract layer, a counterparty dependency, or a Bitcoin-adjacent network's
+      own consensus mechanism.
+    </p>
+
+    <div class="pillbar" aria-label="Key topics">
+      <span class="pill">Babylon Protocol</span>
+      <span class="pill">wBTC DeFi</span>
+      <span class="pill">CeFi Lending</span>
+      <span class="pill">Stacks STX</span>
+      <span class="pill">Core DAO</span>
+      <span class="pill">Bridge Risk</span>
+    </div>
+
+    <div class="callout-grid" role="list">
+      <div class="mini" role="listitem">
+        <h3>Why people seek BTC yield</h3>
+        <p class="muted">
+          Long-term BTC holders ("HODLers") want to earn yield on holdings they do not intend to sell.
+          At current BTC prices, even a 1–2% annual yield represents significant USD income.
+          The question is not whether to seek yield — it is which risk trade-off is acceptable.
+        </p>
+        <div class="kpi-badges">
+          <span>Long-term holders</span><span>Yield on idle BTC</span><span>USD income generation</span>
+        </div>
+      </div>
+      <div class="mini" role="listitem">
+        <h3>The fundamental trade-off</h3>
+        <p class="muted">
+          Native BTC held in self-custody has zero counterparty risk and zero smart contract risk.
+          Every yield mechanism adds at least one layer of risk. The yield premium must be evaluated
+          against the probability and magnitude of that added risk — particularly for large BTC positions
+          where principal preservation is the priority.
+        </p>
+        <div class="kpi-badges">
+          <span>Yield = added risk</span><span>Principal preservation first</span><span>Risk-adjusted view</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1rem;">
+      <strong>Key principle:</strong> For most BTC holders, the question is not "should I earn yield?"
+      but "how much yield justifies which additional risk layer?" A 1% APY from a highly trusted
+      mechanism may be better than 6% from a mechanism where you don't fully understand the risk.
+      Evaluate each option on a risk-adjusted basis, not a headline rate basis.
+    </div>
+  </section>
+
+  <section class="card" id="methods">
+    <h2>The Six Main BTC Yield Mechanisms Explained</h2>
+    <p>
+      Each mechanism has a distinct risk profile, yield range, and trust assumption.
+      Understanding these differences is the most important step in any BTC yield strategy.
+      Technical documentation for each is listed in the sources section below.
+    </p>
+
+    <div class="method-grid" role="list">
+      <div class="m-card" role="listitem">
+        <span class="m-tag">Native BTC</span>
+        <h3>Babylon Protocol</h3>
+        <p>Time-lock native BTC on Bitcoin's UTXO layer to provide economic security to PoS chains. BTC never leaves the Bitcoin network. Yield is paid in the secured chain's token. The most trust-minimised BTC yield mechanism available.</p>
+        <div class="kpi-badges" style="margin-top:.5rem"><span>Native BTC</span><span>No bridge</span><span>Token yield</span></div>
+      </div>
+      <div class="m-card" role="listitem">
+        <span class="m-tag">Wrapped BTC</span>
+        <h3>wBTC in DeFi</h3>
+        <p>Wrap BTC to ERC-20 wBTC via a custodian (BitGo), then supply to Aave, Compound, or other DeFi protocols. Earns borrower interest. Introduces bridge custodian risk (BitGo holds the BTC) plus smart contract risk of the DeFi protocol.</p>
+        <div class="kpi-badges" style="margin-top:.5rem"><span>Bridge risk</span><span>Smart contract</span><span>DeFi yield</span></div>
+      </div>
+      <div class="m-card" role="listitem">
+        <span class="m-tag">CeFi</span>
+        <h3>Centralised lending</h3>
+        <p>Lend BTC to a centralised platform (Nexo, crypto exchanges). Platform lends to institutional borrowers. Yield paid in BTC or fiat. Counterparty insolvency risk is the dominant concern — FTX, Celsius, Voyager all demonstrate this risk category.</p>
+        <div class="kpi-badges" style="margin-top:.5rem"><span>Counterparty risk</span><span>BTC yield</span><span>Highest risk</span></div>
+      </div>
+      <div class="m-card" role="listitem">
+        <span class="m-tag">PoS Network</span>
+        <h3>Stacks (STX stacking)</h3>
+        <p>Hold STX tokens on Stacks — a Bitcoin Layer 2. Lock STX in "stacking" cycles to receive BTC yield from Bitcoin miners who pay to use Stacks's consensus mechanism. Yield is paid in native BTC. Requires holding STX, not BTC directly.</p>
+        <div class="kpi-badges" style="margin-top:.5rem"><span>BTC yield</span><span>Requires STX</span><span>Bitcoin L2</span></div>
+      </div>
+      <div class="m-card" role="listitem">
+        <span class="m-tag">Bitcoin L2</span>
+        <h3>Core DAO</h3>
+        <p>Time-lock native BTC to participate in Core Chain's Satoshi Plus consensus. BTC is locked on Bitcoin's UTXO layer (no bridge) and validators are elected partly based on BTC delegation. Yield paid in CORE tokens.</p>
+        <div class="kpi-badges" style="margin-top:.5rem"><span>No bridge</span><span>CORE token yield</span><span>BTC time-lock</span></div>
+      </div>
+      <div class="m-card" role="listitem">
+        <span class="m-tag">LST</span>
+        <h3>Lombard / cbBTC DeFi</h3>
+        <p>Newer liquid BTC staking tokens (LBTC by Lombard, cbBTC by Coinbase) enable BTC holders to earn yield via liquid staking approaches similar to stETH. Still early-stage — additional smart contract and bridge risk layers apply.</p>
+        <div class="kpi-badges" style="margin-top:.5rem"><span>Early stage</span><span>Smart contract</span><span>Liquid position</span></div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:.75rem;">
+      <strong>Most trust-minimised to most trust-dependent:</strong> Babylon Protocol and Core DAO
+      (native BTC time-lock, no bridge) → Stacks stacking (requires STX, BTC yield) →
+      wBTC in DeFi (bridge + smart contract) → Liquid BTC tokens (bridge + protocol) →
+      CeFi lending (full counterparty dependency).
+    </div>
+  </section>
+
+  <section class="card" id="rewards">
+    <h2>What Drives BTC Yield Rates</h2>
+    <p>
+      Unlike PoS networks where rewards are protocol-issued, BTC yield rates are driven by
+      external demand — either from borrowers, from PoS chains seeking Bitcoin security, or
+      from DeFi market conditions. BTC yield data is aggregated by
+      <a href="https://defillama.com/yields" target="_blank" rel="noopener nofollow" class="src">DeFiLlama Yields</a>
+      and for Babylon specifically at
+      <a href="https://www.babylonlabs.io/" target="_blank" rel="noopener nofollow" class="src">babylonlabs.io</a>.
+    </p>
+    <ul>
+      <li><strong>For Babylon Protocol:</strong> yield depends on how many PoS chains pay for Bitcoin security and how much BTC is competing for those yield opportunities. More chains = higher total yield pool.</li>
+      <li><strong>For wBTC DeFi lending:</strong> borrower demand for BTC on Ethereum — primarily driven by traders using wBTC as collateral. Rates track broader crypto market conditions.</li>
+      <li><strong>For CeFi lending:</strong> institutional borrower demand for BTC. Rates are set by the platform based on their loan book — less transparent than DeFi.</li>
+      <li><strong>For Stacks stacking:</strong> the Bitcoin miner fees paid into the Stacks consensus mechanism determine the BTC yield distributed to STX stackers. Yield correlates with Bitcoin network activity.</li>
+      <li><strong>For Core DAO:</strong> CORE token emission schedule and the value of CORE determine the USD-equivalent yield on BTC time-locking. Subject to CORE token price risk.</li>
+    </ul>
+
+    <div class="note">
+      <strong>BTC yield reality check:</strong> BTC yield rates across all mechanisms are generally
+      lower than DeFi stablecoin or PoS staking yields — typically 0.5–5% APR depending on mechanism
+      and market conditions. Any BTC yield product claiming significantly higher rates warrants extreme
+      scepticism — historically, high BTC yield has been a common feature of fraudulent or unsustainable platforms.
+    </div>
+  </section>
+
+  <section class="card" id="apy-apr">
+    <h2>APY / APR: How to Compare Across BTC Yield Mechanisms</h2>
+    <p>
+      BTC yield comparisons are particularly complex because different mechanisms pay yield
+      in different assets — some in BTC, some in governance tokens, some in stablecoins.
+      Always convert to a common denominator before comparing.
+    </p>
+
+    <table aria-label="APY vs APR for BTC yield">
+      <thead>
+        <tr><th>Term</th><th>BTC yield context</th><th>What to watch</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>BTC-denominated APR</td>
+          <td>Yield paid in BTC (wBTC DeFi, some CeFi)</td>
+          <td>Most useful for long-term BTC accumulators — compounding in BTC terms</td>
+        </tr>
+        <tr>
+          <td>Token-denominated APR</td>
+          <td>Yield paid in CORE, STX, or other governance tokens</td>
+          <td>Must adjust for token price volatility — 5% APR in a token that falls 80% is a net loss</td>
+        </tr>
+        <tr class="highlight">
+          <td>USD-denominated yield</td>
+          <td>All yield converted to USD at current prices</td>
+          <td>The most honest comparison metric — dominates all other factors for most holders</td>
+        </tr>
+        <tr>
+          <td>Net APR</td>
+          <td>APR after all fees, gas, and bridge costs</td>
+          <td>For BTC yield, bridge fees and gas can be significant — always factor in</td>
+        </tr>
+        <tr class="highlight">
+          <td>Risk-adjusted yield</td>
+          <td>Net APR weighted by probability of principal loss</td>
+          <td>The only honest framework — a 6% APR from CeFi may be worse than 1% from Babylon on risk-adjusted basis</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Critical rule for token yield:</strong> When a BTC yield mechanism pays rewards in a
+      governance token (CORE, STX), model the scenario where that token loses 50–80% of its USD value.
+      At what token price does the yield become zero or negative in USD terms?
+      That threshold determines whether the yield is genuinely attractive.
+    </div>
+  </section>
+
+  <section class="card" id="how-to">
+    <h2>How to Earn BTC Yield: Step-by-Step Tutorial</h2>
+    <ol>
+      <li><strong>Define your risk tolerance first:</strong> decide how much additional risk you are willing to accept for yield. Native BTC with zero counterparty risk is the baseline — any yield mechanism represents a deviation from that baseline. Define your maximum acceptable deviation before selecting a mechanism.</li>
+      <li><strong>For Babylon Protocol (most trust-minimised):</strong> visit the official
+        <a href="https://www.babylonlabs.io/" target="_blank" rel="noopener nofollow" class="src">babylonlabs.io</a>
+        and follow the staking interface. BTC time-locks are Bitcoin UTXO transactions — use a Bitcoin-native wallet (Unisat, Xverse) rather than an Ethereum wallet. Verify the official contract documentation before depositing.</li>
+      <li><strong>For wBTC in DeFi:</strong> bridge BTC to wBTC via the official
+        <a href="https://wbtc.network/" target="_blank" rel="noopener nofollow" class="src">wbtc.network</a>
+        (requires KYC for direct minting; retail users can buy wBTC on a DEX). Then supply to an audited DeFi protocol (Aave, Compound) following the same steps as USDC lending. Remember: you now have both bridge risk and DeFi smart contract risk.</li>
+      <li><strong>For Stacks stacking:</strong> acquire STX tokens, then use the Hiro Wallet or Xverse to participate in stacking cycles.
+        Official documentation at <a href="https://docs.stacks.co/" target="_blank" rel="noopener nofollow" class="src">docs.stacks.co</a>.</li>
+      <li><strong>For Core DAO:</strong> time-lock BTC using the official Core staking interface at
+        <a href="https://stake.coredao.org/" target="_blank" rel="noopener nofollow" class="src">stake.coredao.org</a>.
+        BTC stays on the Bitcoin network — verify the transaction structure before signing.</li>
+      <li><strong>For CeFi (highest risk — approach cautiously):</strong> if using CeFi, use only regulated, well-capitalised platforms with transparent financial disclosures. Never concentrate more than a defined small percentage of your total BTC in any single CeFi platform.</li>
+      <li><strong>Always start with a small test amount</strong> regardless of mechanism — verify the full cycle including withdrawal before committing meaningful BTC.</li>
+    </ol>
+
+    <div class="note">
+      <strong>Key principle:</strong> The worst BTC yield outcome is losing principal.
+      A 1% APR from a mechanism you fully understand is better than 5% from one you don't.
+      Every mechanism in this category has at least one historical precedent of significant losses —
+      understand which precedent applies before deploying.
+    </div>
+  </section>
+
+  <section class="card" id="calculator">
+    <h2>Calculator: Net Yield Estimation for BTC Positions</h2>
+    <p>
+      BTC yield calculations must account for both the yield mechanism's specific cost structure
+      and the fact that rewards may be denominated in a different, potentially volatile asset.
+    </p>
+
+    <table aria-label="BTC staking calculator inputs">
+      <thead>
+        <tr><th>Input</th><th>Meaning</th><th>BTC-specific note</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>BTC amount</td>
+          <td>Your principal in BTC and USD value</td>
+          <td>At current prices, even 0.5% APR on 1 BTC is significant in USD terms — model in USD</td>
+        </tr>
+        <tr>
+          <td>Gross APR (in reward token)</td>
+          <td>Protocol rate before fees and bridge costs</td>
+          <td>Note which token the yield is paid in — BTC, CORE, STX, or governance token</td>
+        </tr>
+        <tr class="highlight">
+          <td>Reward token price assumption</td>
+          <td>Expected price of the yield token in USD</td>
+          <td>For token-denominated yields, model bear scenario (−50% to −80% token price)</td>
+        </tr>
+        <tr>
+          <td>Bridge and gas costs</td>
+          <td>Wrapping BTC to wBTC, Ethereum gas, bridge fees</td>
+          <td>For wBTC route: bridge fee ~0.1%, Ethereum gas $20–$80 round-trip; significant for small BTC amounts</td>
+        </tr>
+        <tr class="highlight">
+          <td>Lock-up period</td>
+          <td>Babylon time-lock, CeFi term, Stacks cycle</td>
+          <td>BTC locked cannot be sold during a price run-up — opportunity cost of illiquidity is real</td>
+        </tr>
+        <tr>
+          <td>Risk-adjusted discount</td>
+          <td>Expected loss probability × magnitude</td>
+          <td>For CeFi: multiply by estimated platform risk. For bridge routes: smart contract exploit probability.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>Example: 0.1 BTC via Babylon (~$6,000)</h3>
+        <p class="muted">Native BTC time-lock, no bridge. Yield ~1–3% APR in PoS chain tokens. At 2% APR: ~$120/year at current BTC price. No bridge fee, minimal Bitcoin transaction fee (~$2). Near-zero counterparty risk premium. Best risk-adjusted option at this scale.</p>
+      </div>
+      <div class="mini">
+        <h3>Example: 0.1 BTC via wBTC on Aave (~$6,000)</h3>
+        <p class="muted">Bridge to wBTC: ~$6 fee + $30 Ethereum gas. Aave BTC supply rate: ~1–3% APR. At 2% APR: ~$120/year. Round-trip bridge + gas cost: ~$60 (one-time). Adds bridge risk (BitGo custody) + Aave smart contract risk. Net yield similar to Babylon but with added risk layers.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Takeaway:</strong> For most BTC holders, Babylon Protocol currently offers the best
+      risk-adjusted BTC yield because it requires no bridge and keeps BTC on the Bitcoin network.
+      wBTC DeFi offers comparable yield with significantly more risk layers.
+      CeFi typically offers marginally higher headline rates with the worst risk-adjusted profile.
+    </div>
+  </section>
+
+  <section class="card" id="rates">
+    <h2>Current Rate Benchmarks Across BTC Yield Options (2025–2026)</h2>
+    <p>
+      Rates below are illustrative ranges. Real-time BTC lending rates are available at
+      <a href="https://defillama.com/yields" target="_blank" rel="noopener nofollow" class="src">DeFiLlama Yields</a>.
+      Babylon and Core DAO rates vary with PoS chain demand and token prices — check official dashboards directly.
+    </p>
+
+    <div class="rbars" aria-label="BTC yield rate benchmarks">
+      <div class="rbr"><span class="rbl">Babylon Protocol</span><div class="rbt"><div class="rbf" style="width:25%"></div></div><span class="rbv">1–3%</span></div>
+      <div class="rbr"><span class="rbl">Core DAO</span><div class="rbt"><div class="rbf" style="width:35%"></div></div><span class="rbv">1–5%*</span></div>
+      <div class="rbr"><span class="rbl">wBTC (Aave/Compound)</span><div class="rbt"><div class="rbf" style="width:28%"></div></div><span class="rbv">0.5–4%</span></div>
+      <div class="rbr"><span class="rbl">Stacks stacking</span><div class="rbt"><div class="rbf" style="width:32%"></div></div><span class="rbv">5–10%†</span></div>
+      <div class="rbr"><span class="rbl">CeFi lending</span><div class="rbt"><div class="rbf" style="width:38%"></div></div><span class="rbv">1–6%</span></div>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted-2);margin-top:.25rem;">
+      * Core DAO yield paid in CORE tokens — rate in USD terms depends on CORE price.
+      † Stacks stacking paid in BTC, but requires holding STX which introduces STX price risk.
+      All rates highly variable with market conditions.
+    </p>
+
+    <div class="badge-row">
+      <span class="badge">No-Bridge Options: Babylon, Core DAO</span>
+      <span class="badge">Bridge Required: wBTC DeFi</span>
+      <span class="badge">BTC Yield: Stacks, Some CeFi</span>
+      <span class="badge">Token Yield: Core DAO, Babylon</span>
+    </div>
+
+    <div class="note">
+      <strong>High BTC yield = high risk:</strong> Any BTC yield product consistently offering 8%+
+      in BTC-denominated terms should be examined extremely carefully.
+      Historically, yields this high on BTC have almost exclusively come from platforms
+      taking on significant hidden risk (BlockFi, Celsius, Genesis) or outright fraud.
+      The sustainable BTC yield range for most trust-minimised mechanisms is 0.5–4%.
+    </div>
+  </section>
+
+  <section class="card" id="minimum">
+    <h2>Minimum Amount Required Across BTC Yield Methods</h2>
+    <p>
+      Minimums vary significantly by mechanism. Your practical minimum is also shaped by
+      the fixed costs of entry and exit (gas, bridge fees, transaction fees).
+    </p>
+    <ul>
+      <li><strong>Babylon Protocol:</strong> minimum is set by the Bitcoin UTXO transaction economics — small amounts (under 0.001 BTC) may face disproportionate Bitcoin transaction fees relative to yield. Babylon may also set protocol-level minimums; check the current dashboard.</li>
+      <li><strong>Core DAO:</strong> minimum BTC time-lock is typically 0.01 BTC — check the current minimum at the official staking interface.</li>
+      <li><strong>wBTC in DeFi:</strong> no hard protocol minimum, but bridge fees (0.1% of amount) and Ethereum gas ($20–$80 round-trip) make positions under 0.05 BTC (approx $3,000) uneconomical on mainnet. Use Arbitrum or Optimism L2 for smaller wBTC positions.</li>
+      <li><strong>Stacks stacking:</strong> minimum STX for solo stacking is set dynamically — typically 60,000–100,000 STX which is significant. Most retail participants use a stacking pool with no minimum.</li>
+      <li><strong>CeFi platforms:</strong> minimums vary by platform — typically $50–$500 worth of BTC. No technical minimum but position size should reflect counterparty risk tolerance.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Rule:</strong> For BTC amounts under 0.05 BTC (~$3,000), Babylon and Core DAO
+      (native BTC time-lock, low transaction fees) are more cost-efficient entry points than
+      wBTC DeFi on Ethereum mainnet. The bridge and gas overhead makes wBTC uneconomical for
+      small positions unless using an L2 deployment.
+    </div>
+  </section>
+
+  <section class="card" id="yield">
+    <h2>Babylon Protocol: Native BTC Staking Deep-Dive</h2>
+    <p>
+      Babylon Protocol is the most significant development in native BTC yield since Bitcoin's creation.
+      It enables native BTC to provide economic security to proof-of-stake chains — without any bridge,
+      without leaving the Bitcoin network, and without any trusted custodian.
+      The technical design is documented at
+      <a href="https://www.babylonlabs.io/" target="_blank" rel="noopener nofollow" class="src">babylonlabs.io</a>
+      and the research paper is available at
+      <a href="https://arxiv.org/abs/2407.18220" target="_blank" rel="noopener nofollow" class="src">arxiv.org/abs/2407.18220</a>.
+    </p>
+
+    <div class="grid-2">
+      <div class="mini">
+        <h3>How Babylon works technically</h3>
+        <p class="muted">BTC holders create a Bitcoin UTXO time-lock transaction that commits their BTC to support a specific PoS chain's validator set. If the validator misbehaves (double signs), the BTC can be slashed using Bitcoin's own scripting capabilities — no bridge required. The BTC never leaves the Bitcoin blockchain.</p>
+        <div class="kpi-badges"><span>Bitcoin scripting</span><span>UTXO time-lock</span><span>No bridge</span></div>
+      </div>
+      <div class="mini">
+        <h3>What yield Babylon pays and in what token</h3>
+        <p class="muted">Yield is paid in the tokens of the PoS chains that use Babylon for security — not in BTC. This means yield is denominated in potentially volatile governance tokens. The BTC principal is protected on Bitcoin (assuming no validator misbehaviour that triggers slashing), but the yield itself is token-denominated.</p>
+        <div class="kpi-badges"><span>PoS chain tokens</span><span>BTC principal protected</span><span>Token price risk on yield</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:1rem;">Babylon slashing conditions</h3>
+    <ul>
+      <li>Slashing in Babylon is triggered by validator equivocation — the same conditions as traditional PoS slashing. Your BTC is at risk if the validator you delegate to is slashed.</li>
+      <li>The slashing mechanism is enforced via Bitcoin's UTXO scripting — a slashable event results in the BTC being sent to an unspendable burn address, not to another party.</li>
+      <li>Finality provider selection (Babylon's term for validators) should follow the same due diligence as native PoS validator selection: uptime history, operational track record, slashing history.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Babylon's significance:</strong> Babylon is the first production mechanism that allows
+      native BTC to participate in blockchain security without wrapping, bridging, or custodying
+      with a third party. This represents a fundamentally different trust model from all other
+      BTC yield mechanisms — the BTC principal remains under Bitcoin's consensus protection.
+    </div>
+  </section>
+
+  <section class="card" id="review">
+    <h2>Legitimacy, Trust Signals, and What to Watch (2025–2026)</h2>
+    <p>
+      The BTC yield space has a higher historical incidence of fraudulent or unsustainable platforms
+      than most other areas of crypto. Due diligence standards must be correspondingly higher.
+      Independent research is published by
+      <a href="https://www.galaxy.com/research/" target="_blank" rel="noopener nofollow" class="src">Galaxy Digital Research</a>
+      and
+      <a href="https://blockworks.co/research" target="_blank" rel="noopener nofollow" class="src">Blockworks Research</a>.
+    </p>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>Legitimacy signals by category</h3>
+        <p class="muted">
+          <strong>Protocols (Babylon, Core):</strong> published smart contract audits, open-source code,
+          transparent team, published research paper, verifiable on-chain activity.<br>
+          <strong>DeFi (wBTC route):</strong> same as any DeFi protocol — multiple independent audits,
+          TVL track record, conservative risk parameters.<br>
+          <strong>CeFi:</strong> regulatory licence, published financial disclosures, segregated customer accounts,
+          no history of withdrawals being blocked.
+        </p>
+      </div>
+      <div class="mini">
+        <h3>Red flags specific to BTC yield</h3>
+        <p class="muted">
+          Consistently high BTC yield (8%+ in BTC terms) with no clear explanation of where it comes from.
+          Platform that does not clearly disclose how it deploys customer BTC.
+          No published audits for any smart contract involved in the yield mechanism.
+          Promises of fixed high BTC yield regardless of market conditions — this is the classic feature
+          of unsustainable or fraudulent platforms (BlockFi, Celsius, Genesis).
+        </p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>2025/2026 specific threat:</strong> "Bitcoin restaking" marketing that obscures significant
+      bridge or protocol risk. Always ask: where exactly is my BTC? Who holds it? What are the conditions
+      under which I might not get it back? If those questions cannot be answered clearly from public
+      documentation, do not deploy capital.
+    </div>
+  </section>
+
+  <section class="card" id="safety">
+    <h2>Risks: Bridge, Smart Contract, Counterparty, and Custodial</h2>
+    <p>
+      BTC yield mechanisms introduce different risk categories than PoS staking.
+      Understanding which risk applies to which mechanism is the foundation of safe BTC yield strategy.
+    </p>
+
+    <table aria-label="BTC yield risk factors">
+      <thead>
+        <tr><th>Risk</th><th>Applies to</th><th>Impact</th><th>Mitigation</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>CeFi counterparty insolvency</td>
+          <td>All CeFi platforms</td>
+          <td class="err">Full BTC loss — proven by FTX, Celsius, Genesis</td>
+          <td>Use only regulated platforms; strict concentration limits; prefer non-custodial</td>
+        </tr>
+        <tr>
+          <td>Bridge / wrap custodian</td>
+          <td>wBTC DeFi (BitGo custody)</td>
+          <td class="err">Full BTC loss if custodian fails or is hacked</td>
+          <td>Understand wBTC custodian (BitGo) trust assumptions; assess custodian solvency</td>
+        </tr>
+        <tr class="highlight">
+          <td>DeFi smart contract exploit</td>
+          <td>wBTC on Aave/Compound</td>
+          <td class="err">Partial or total wBTC loss</td>
+          <td>Use only protocols with multiple independent audits and years of on-chain track record</td>
+        </tr>
+        <tr>
+          <td>Babylon validator slashing</td>
+          <td>Babylon Protocol</td>
+          <td class="warn">BTC burned (slashable conditions)</td>
+          <td>Choose finality providers carefully — verify no slashing history and strong operational track record</td>
+        </tr>
+        <tr class="highlight">
+          <td>Token price risk on yield</td>
+          <td>Babylon, Core DAO</td>
+          <td class="warn">Yield value near-zero if token collapses</td>
+          <td>Model bear scenario for yield token; BTC principal remains protected (Babylon/Core)</td>
+        </tr>
+        <tr>
+          <td>STX price risk</td>
+          <td>Stacks stacking</td>
+          <td class="warn">STX required for stacking — if STX falls, net position suffers</td>
+          <td>Stacks stacking is a two-asset strategy — evaluate STX exposure independently</td>
+        </tr>
+        <tr class="highlight">
+          <td>Lock-up / time-lock illiquidity</td>
+          <td>Babylon, Core DAO, Stacks</td>
+          <td class="warn">Cannot sell BTC during lock period even if price moves significantly</td>
+          <td>Only lock BTC you are certain you will not need during the lock period</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Risk hierarchy:</strong> CeFi counterparty risk is the most dangerous for BTC holders —
+      it has resulted in total and permanent loss multiple times in recent history.
+      Smart contract and bridge risks are real but typically require a specific exploit event.
+      Slashing risk on well-chosen validators in trust-minimised protocols (Babylon) is low.
+      Time-lock illiquidity is a constraint, not a loss risk — plan accordingly.
+    </div>
+  </section>
+
+  <section class="card" id="comparison">
+    <h2>Comparison: All Major BTC Yield Options</h2>
+    <p>
+      The right choice depends on your risk tolerance, BTC holding size, and yield goals.
+      This table summarises the key dimensions across all major mechanisms.
+    </p>
+
+    <table aria-label="BTC yield options full comparison">
+      <thead>
+        <tr><th>Mechanism</th><th>BTC stays on Bitcoin?</th><th>Yield token</th><th>APR range</th><th>Primary risk</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td><strong>Babylon Protocol</strong></td>
+          <td class="ok">Yes — UTXO time-lock</td>
+          <td>PoS chain tokens</td>
+          <td>1–3%</td>
+          <td class="warn">Validator slashing + token price</td>
+        </tr>
+        <tr>
+          <td><strong>Core DAO</strong></td>
+          <td class="ok">Yes — UTXO time-lock</td>
+          <td>CORE token</td>
+          <td>1–5%</td>
+          <td class="warn">CORE price risk on yield</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>wBTC on Aave</strong></td>
+          <td class="err">No — wrapped via BitGo</td>
+          <td>BTC (wBTC)</td>
+          <td>0.5–4%</td>
+          <td class="err">Bridge custodian + smart contract</td>
+        </tr>
+        <tr>
+          <td><strong>Stacks stacking</strong></td>
+          <td class="warn">Requires STX, not BTC directly</td>
+          <td>Native BTC</td>
+          <td>5–10%</td>
+          <td class="warn">Must hold STX; STX price risk</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>CeFi lending</strong></td>
+          <td class="err">No — custodian holds BTC</td>
+          <td>BTC or fiat</td>
+          <td>1–6%</td>
+          <td class="err">Full counterparty risk</td>
+        </tr>
+        <tr>
+          <td><strong>Lombard/cbBTC (LST)</strong></td>
+          <td class="err">No — wrapped/bridged</td>
+          <td>BTC-denominated</td>
+          <td>1–4%</td>
+          <td class="err">Bridge + smart contract + early-stage protocol</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Decision framework:</strong> If principal preservation is your priority,
+      Babylon Protocol and Core DAO are the strongest choices — BTC remains on Bitcoin,
+      no custodian holds it. If you are comfortable with bridge and smart contract risk
+      for yield in BTC terms, wBTC DeFi is viable. If you want simplicity and accept
+      counterparty risk, CeFi is available — but understand the historical precedents fully.
+    </div>
+  </section>
+
+  <section class="card" id="best-practices">
+    <h2>Best Practices: High-Impact Rules for BTC Yield</h2>
+    <ul>
+      <li><strong>Know where your BTC is at all times:</strong> be able to answer "who holds my BTC and under what conditions might I not get it back?" for every mechanism you use. If you cannot answer that clearly, do not deploy.</li>
+      <li><strong>Prefer no-bridge mechanisms for large BTC positions:</strong> Babylon and Core DAO keep BTC on the Bitcoin network. For significant BTC holdings, the bridge risk of wBTC or other wrapped approaches may not be worth the yield premium.</li>
+      <li><strong>Never concentrate BTC in a single CeFi platform:</strong> if you use CeFi at all, treat each platform as a counterparty with a defined maximum exposure — the same way you would treat any single financial institution.</li>
+      <li><strong>Model the token yield scenario honestly:</strong> for mechanisms paying yield in governance tokens (CORE, Babylon chain tokens), model what happens if that token loses 80% of its current value. Is the remaining yield still attractive relative to the risk?</li>
+      <li><strong>Account for lock-up illiquidity in your position sizing:</strong> never lock BTC you might need to sell for any reason during the lock period. Bitcoin's price volatility means the opportunity cost of missing a selling window can be substantial.</li>
+      <li><strong>Verify finality provider / validator history for Babylon:</strong> apply the same due diligence to Babylon finality providers as you would to a PoS validator — check for slashing history and operational transparency.</li>
+      <li><strong>Use small test amounts before full deployment:</strong> test the complete cycle — deposit, yield accrual, and full withdrawal — before deploying your target position size on any BTC yield mechanism.</li>
+      <li><strong>For wBTC DeFi, revoke approvals after sessions</strong> at <a href="https://revoke.cash/" target="_blank" rel="noopener nofollow" class="src">revoke.cash</a>.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Most common BTC yield mistake:</strong> Prioritising headline APR without understanding
+      that BTC — unlike altcoins — is typically held as a principal preservation asset.
+      A 3% yield that costs 5% in counterparty risk premium is a losing strategy,
+      even if you never actually experience a loss. Risk-adjusted thinking is not optional for BTC yield.
+    </div>
+  </section>
+
+  <section class="card" id="troubleshooting">
+    <h2>Troubleshooting: Common Issues, Root Causes, and Fixes</h2>
+
+    <h3>"My Babylon time-lock transaction is not confirming"</h3>
+    <ul>
+      <li>Bitcoin transaction confirmation times depend on network fee. If you set a low fee during a high-congestion period, your transaction may sit in the mempool for hours or days. Use a Bitcoin fee estimator (mempool.space) to check current fee rates before submitting.</li>
+      <li>Verify the transaction ID on a Bitcoin block explorer (Mempool.space, Blockstream.info) to check its current status. A transaction in the mempool has not been confirmed yet — this is normal if fee was set low.</li>
+    </ul>
+
+    <h3>"I cannot withdraw my wBTC from a DeFi protocol"</h3>
+    <ul>
+      <li>High utilisation ratio in the lending pool — all supplied wBTC is borrowed and there is no available liquidity. Check the protocol dashboard for current utilisation. Wait for borrowers to repay.</li>
+      <li>Insufficient Ethereum gas in your wallet for the withdrawal transaction — top up your ETH balance before retrying.</li>
+    </ul>
+
+    <h3>"My CeFi BTC withdrawal is delayed or blocked"</h3>
+    <ul>
+      <li>Withdrawal delays or blocks are a critical warning sign for CeFi platforms — this was the first visible symptom for both Celsius and FTX before their collapses. Do not assume this is routine. Investigate immediately: check platform communications, community forums, and news sources.</li>
+      <li>If the platform has not provided a clear, specific explanation within 24 hours, treat the situation as potentially serious and take whatever steps are available — including engaging the platform's support, checking regulatory filings, and seeking legal advice if the amount is material.</li>
+    </ul>
+
+    <h3>"My Stacks stacking cycle did not produce the expected BTC yield"</h3>
+    <ul>
+      <li>Stacks stacking yield depends on Bitcoin miner fees paid into the Stacks consensus. In periods of low Bitcoin network activity, rewards may be lower than historical averages. Check the cycle's total BTC rewards distributed on Stacks explorer.</li>
+      <li>If using a stacking pool, verify the pool's fee structure — pool operators charge a percentage of the BTC yield before distributing to participants.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Best debugging method:</strong> For Bitcoin-native mechanisms (Babylon, Core DAO),
+      use a Bitcoin block explorer (Mempool.space, Blockstream.info) as the primary data source.
+      For wBTC DeFi, use Etherscan and the DeFi protocol's official dashboard.
+      For CeFi, withdrawal delays must be treated with extreme seriousness — use official
+      communications, not community speculation, as your primary information source.
+    </div>
+  </section>
+
+  <section class="eeat" id="eeat" aria-labelledby="eeat-title">
+    <h2 id="eeat-title">Authoritative Notes &amp; External References</h2>
+    <p>
+      Primary sources used throughout this guide. All links point to official protocol documentation,
+      Bitcoin infrastructure tools, independent research organisations, or established security resources.
+    </p>
+
+    <div class="grid-2">
+      <div>
+        <h3>Protocol Docs &amp; Bitcoin Tools</h3>
+        <ul>
+          <li><a href="https://www.babylonlabs.io/" target="_blank" rel="noopener nofollow">Babylon Labs — Official BTC Staking Protocol</a></li>
+          <li><a href="https://arxiv.org/abs/2407.18220" target="_blank" rel="noopener nofollow">Babylon Research Paper — Bitcoin Staking Technical Design</a></li>
+          <li><a href="https://stake.coredao.org/" target="_blank" rel="noopener nofollow">Core DAO — Official BTC Staking Interface</a></li>
+          <li><a href="https://docs.stacks.co/" target="_blank" rel="noopener nofollow">Stacks Docs — STX Stacking Documentation</a></li>
+          <li><a href="https://wbtc.network/" target="_blank" rel="noopener nofollow">WBTC Network — Wrapped Bitcoin Official Documentation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Analytics, Risk &amp; Research</h3>
+        <ul>
+          <li><a href="https://mempool.space/" target="_blank" rel="noopener nofollow">Mempool.space — Bitcoin Mempool &amp; Fee Estimator</a></li>
+          <li><a href="https://defillama.com/yields" target="_blank" rel="noopener nofollow">DeFiLlama Yields — BTC &amp; wBTC Lending Rate Data</a></li>
+          <li><a href="https://www.galaxy.com/research/" target="_blank" rel="noopener nofollow">Galaxy Digital Research — Bitcoin &amp; DeFi Analysis</a></li>
+          <li><a href="https://blockworks.co/research" target="_blank" rel="noopener nofollow">Blockworks Research — BTC Staking &amp; Protocol Coverage</a></li>
+          <li><a href="https://revoke.cash/" target="_blank" rel="noopener nofollow">Revoke.cash — Token Allowance Management (wBTC DeFi)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1rem;">
+      <strong>About:</strong> Prepared by Crypto Finance Experts as a practical SEO-oriented knowledge base covering
+      BTC yield mechanisms: Babylon Protocol native BTC staking, wrapped BTC in DeFi, CeFi lending,
+      Stacks stacking, Core DAO, APY/APR comparison, risk framework, and troubleshooting.
+    </div>
+  </section>
+
+  <section class="card faq-section" aria-labelledby="faq">
+    <h2 id="faq">BTC Staking: Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f1" id="b1">
+        <h3>Can Bitcoin actually be staked?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f1" class="faq-content" role="region" aria-labelledby="b1">
+        <p>Bitcoin uses proof-of-work — it has no native staking mechanism. However, Bitcoin can earn yield through several mechanisms: Babylon Protocol (native BTC time-lock to secure PoS chains), Core DAO (similar UTXO time-lock), wrapped BTC (wBTC) in DeFi lending protocols, Stacks stacking (BTC yield via Bitcoin L2), and CeFi lending. Each has different trust assumptions and risk profiles — none of them are equivalent to PoS staking in terms of mechanism or security.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f2" id="b2">
+        <h3>What is Babylon Protocol and how does it work?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f2" class="faq-content" role="region" aria-labelledby="b2">
+        <p>Babylon Protocol enables native BTC to provide economic security to proof-of-stake blockchains without leaving the Bitcoin network. BTC holders create UTXO time-lock transactions on Bitcoin that commit their BTC to support a PoS chain's validator set. If a validator misbehaves (double signs), Bitcoin's own scripting can slash the committed BTC — no bridge or custodian required. Yield is paid in the tokens of the secured PoS chains, not in BTC.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f3" id="b3">
+        <h3>What APY or APR can I earn by staking BTC?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f3" class="faq-content" role="region" aria-labelledby="b3">
+        <p>BTC yield rates are generally lower than PoS staking or stablecoin DeFi rates: Babylon Protocol and Core DAO ~1–3% APR (in governance tokens); wBTC on Aave/Compound ~0.5–4% APR (in wBTC, variable with market conditions); Stacks stacking ~5–10% APR (in BTC, but requires STX); CeFi lending ~1–6% APR. Any BTC yield product consistently above 8% in BTC-denominated terms warrants extreme scrutiny — historically this has been a common feature of unsustainable or fraudulent platforms.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f4" id="b4">
+        <h3>What is the difference between Babylon and wBTC staking?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f4" class="faq-content" role="region" aria-labelledby="b4">
+        <p>Babylon uses native BTC on the Bitcoin blockchain — your BTC never leaves Bitcoin's network, no bridge or custodian is involved. Your BTC is protected by Bitcoin's own consensus. wBTC requires converting your BTC to an ERC-20 token via BitGo's custodial bridge — your BTC is held by BitGo, and you are exposed to both BitGo's custodial risk and the smart contract risk of whatever DeFi protocol you use. Babylon is significantly more trust-minimised; wBTC DeFi offers comparable or slightly lower rates with significantly more risk layers.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f5" id="b5">
+        <h3>Is CeFi BTC lending safe?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f5" class="faq-content" role="region" aria-labelledby="b5">
+        <p>The track record is poor. BlockFi, Celsius, Voyager, and Genesis — all major CeFi BTC lending platforms — experienced insolvency or collapse between 2022–2024, resulting in significant or total customer losses. CeFi BTC lending carries full counterparty risk: if the platform becomes insolvent, your BTC may be at risk. If you use CeFi, use only regulated platforms with transparent financial disclosures and strict concentration limits (treat each CeFi platform as a counterparty with a defined maximum exposure).</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f6" id="b6">
+        <h3>What is Stacks stacking and how does it pay BTC yield?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f6" class="faq-content" role="region" aria-labelledby="b6">
+        <p>Stacks is a Bitcoin Layer 2 protocol. STX token holders can "stack" (lock) their STX tokens in consensus cycles and receive native BTC as yield. The BTC comes from Stacks miners who must transfer BTC to participate in Stacks's Proof of Transfer consensus mechanism. The yield is paid in genuine native BTC, which is attractive — but the mechanism requires holding STX tokens, not BTC directly. STX price risk is an independent variable that affects the total value of the stacking strategy.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f7" id="b7">
+        <h3>What are the risks of wrapping BTC to wBTC?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f7" class="faq-content" role="region" aria-labelledby="b7">
+        <p>wBTC is an ERC-20 token backed 1:1 by BTC held in custody by BitGo (with a merchant and DAO governance layer). The risks are: (1) BitGo custodial risk — if BitGo were hacked, insolvent, or seized, the underlying BTC could be at risk; (2) smart contract risk of the DeFi protocol you use with wBTC; (3) the wBTC smart contract itself, though it has a long track record. wBTC has operated without a loss event since 2019, but the custodial trust assumption is fundamentally different from native Bitcoin self-custody.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f8" id="b8">
+        <h3>Is the yield in Babylon paid in BTC?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f8" class="faq-content" role="region" aria-labelledby="b8">
+        <p>No — Babylon Protocol pays yield in the native tokens of the PoS chains that use Babylon for security, not in BTC. Your BTC principal remains on the Bitcoin network and is protected by Bitcoin's consensus. The yield tokens themselves are subject to the price risk of each respective PoS chain's token. This means the USD value of your yield depends on the performance of those governance tokens, even though your BTC principal is protected. Model a bear scenario for those tokens before committing.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f9" id="b9">
+        <h3>How do I earn yield on BTC without any bridge or custodian?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f9" class="faq-content" role="region" aria-labelledby="b9">
+        <p>The two main options are Babylon Protocol and Core DAO. Both use Bitcoin's native UTXO scripting to time-lock BTC directly on the Bitcoin blockchain — no bridge, no wrapping, no custodian. Your BTC never leaves the Bitcoin network. Yield is paid in PoS chain tokens (Babylon) or CORE tokens (Core DAO). The principal protection is significantly stronger than any bridged approach — but the yield tokens themselves carry their own price risk. These are the most trust-minimised BTC yield options currently in production.</p>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="container" role="contentinfo" style="padding:2rem 0;border-top:1px solid var(--line);margin-top:2rem">
+  <p class="muted">© 2026 BTC Staking Guide. Educational content — not financial or investment advice. Always verify current mechanisms and consult qualified professionals before deploying BTC.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      const body = document.getElementById(btn.getAttribute('aria-controls'));
+      btn.setAttribute('aria-expanded', String(!open));
+      btn.querySelector('.faq-plus').textContent = open ? '+' : '−';
+      body.style.maxHeight = open ? '0' : body.scrollHeight + 'px';
+      body.classList.toggle('open', !open);
+    });
+  });
+</script>
+
+</body>
+</html>
